@@ -3,7 +3,7 @@
 # Start with first build stage
 
 # FROM mhart/alpine-node:14 AS build
-FROM oznu/s6-node:ubuntu-arm32v7 AS build
+FROM oznu/s6-node AS build
 WORKDIR /srv/app/
 
 # Add dependencies first so that Docker can use the cache as long as the dependencies stay unchanged
@@ -20,7 +20,7 @@ COPY dist /srv/app/dist
 # Start with second build stage
 
 #FROM mhart/alpine-node:14
-FROM oznu/s6-node:ubuntu-arm32v7
+FROM oznu/s6-node
 EXPOSE 3000
 WORKDIR /srv/app/
 
